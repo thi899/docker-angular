@@ -1,0 +1,17 @@
+services:
+  backend:
+    image: kipperdev/spring-boot-hello-world:1.0-amd64
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  frontend:
+    build: ./
+    ports:
+      - "4200:4200"
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
